@@ -24,7 +24,11 @@
       --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      max-width: 100%;
+    }
 
     body {
       font-family: 'Open Sans', sans-serif;
@@ -33,6 +37,8 @@
       font-size: 18px;
       line-height: 1.6;
       overflow-x: hidden;
+      max-width: 100%;
+      width: 100%;
     }
 
     /* ── SCROLLBAR ── */
@@ -49,7 +55,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 5%;
-      height: 98px;
+      height: 88px;
       background: var(--white);
       border-bottom: 2px solid var(--gray-200);
       transition: box-shadow var(--transition);
@@ -193,6 +199,7 @@
       background: var(--white);
       position: relative;
       overflow: hidden;
+      max-width: 100%;
     }
     .hero-bg-text {
       position: absolute;
@@ -207,6 +214,8 @@
       pointer-events: none;
       line-height: 1;
       white-space: nowrap;
+      overflow: hidden;
+      max-width: 100vw;
     }
     .hero-label {
       display: inline-flex;
@@ -594,6 +603,7 @@
       background: var(--gold);
       padding: 28px 32px;
       border-radius: var(--radius);
+      max-width: calc(100% - 32px);
     }
     .about-box-float .num { font-size: 38px; font-weight: 800; color: var(--black); line-height: 1; }
     .about-box-float .lbl { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(0,0,0,0.6); margin-top: 5px; }
@@ -788,6 +798,8 @@
       .hero { padding: 60px 5% 48px; }
       .hero h1 { letter-spacing: -1px; }
       .hero-stats { gap: 32px; }
+      .hero-bg-text { display: none; }
+      .about-box-float { position: static; margin-top: 16px; }
     }
     @media (max-width: 560px) {
       .properties-grid { grid-template-columns: 1fr; }
@@ -796,6 +808,11 @@
       .locations-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; align-items: flex-start; }
       .hero-actions { flex-direction: column; align-items: flex-start; }
+      .about-box-float { right: 0; bottom: -16px; }
+      .contact-card-value { font-size: 14px; word-break: break-all; }
+      nav { padding: 0 4%; }
+      section { padding: 60px 4%; }
+      .hero { padding: 48px 4% 40px; }
     }
 
     /* ── ANIMATIONS ── */
@@ -1227,7 +1244,7 @@
               <div class="contact-card-value">+91 76655 99457</div>
             </div>
           </a>
-          <a href="mailto:Udaipur360property@gmail.com" class="contact-card">
+          <a href="/cdn-cgi/l/email-protection#6d38090c041d181f5e5b5d1d1f021d081f19142d0a000c0401430e0200" class="contact-card">
             <div class="contact-card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
@@ -1235,7 +1252,7 @@
             </div>
             <div class="contact-card-text">
               <div class="contact-card-label">Email Us</div>
-              <div class="contact-card-value">Udaipur360property@gmail.com</div>
+              <div class="contact-card-value"><span class="__cf_email__" data-cfemail="87d2e3e6eef7f2f5b4b1b7f7f5e8f7e2f5f3fec7e0eae6eeeba9e4e8ea">[email&#160;protected]</span></div>
             </div>
           </a>
           <a href="https://wa.me/917665599457" target="_blank" rel="noopener" class="contact-card">
@@ -1273,7 +1290,7 @@
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Navbar scroll effect
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
@@ -1294,14 +1311,4 @@
 
     // Scroll animations
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-  </script>
-</body>
-</html>
+      entries.
