@@ -1244,7 +1244,7 @@
               <div class="contact-card-value">+91 76655 99457</div>
             </div>
           </a>
-          <a href="/cdn-cgi/l/email-protection#6d38090c041d181f5e5b5d1d1f021d081f19142d0a000c0401430e0200" class="contact-card">
+          <a href="mailto:Udaipur360property@gmail.com" class="contact-card">
             <div class="contact-card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
@@ -1252,7 +1252,7 @@
             </div>
             <div class="contact-card-text">
               <div class="contact-card-label">Email Us</div>
-              <div class="contact-card-value"><span class="__cf_email__" data-cfemail="87d2e3e6eef7f2f5b4b1b7f7f5e8f7e2f5f3fec7e0eae6eeeba9e4e8ea">[email&#160;protected]</span></div>
+              <div class="contact-card-value">Udaipur360property@gmail.com</div>
             </div>
           </a>
           <a href="https://wa.me/917665599457" target="_blank" rel="noopener" class="contact-card">
@@ -1290,7 +1290,7 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     // Navbar scroll effect
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
@@ -1311,4 +1311,14 @@
 
     // Scroll animations
     const observer = new IntersectionObserver((entries) => {
-      entries.
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
