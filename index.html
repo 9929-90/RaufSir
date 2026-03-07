@@ -17,379 +17,90 @@
       --gray-400: #9a9a9a;
       --gray-600: #555555;
       --gray-800: #222222;
-      --accent: #1a1a1a;
       --gold: #c9a84c;
-      --gold-light: #e8c97a;
       --radius: 4px;
       --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
     }
 
-    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
-
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background: var(--white);
-      color: var(--black);
-      font-size: 18px;
-      line-height: 1.6;
-      overflow-x: hidden;
-      max-width: 100%;
-      width: 100%;
-    }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: 'Open Sans', sans-serif; background: var(--white); color: var(--black); font-size: 18px; line-height: 1.6; overflow-x: hidden; width: 100%; }
 
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--gray-100); }
     ::-webkit-scrollbar-thumb { background: var(--black); }
 
     /* ── NAVBAR ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5%;
-      height: 72px;
-      background: var(--white);
-      border-bottom: 2px solid var(--gray-200);
-      transition: box-shadow var(--transition);
-    }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 72px; background: var(--white); border-bottom: 2px solid var(--gray-200); transition: box-shadow var(--transition); }
     nav.scrolled { box-shadow: 0 4px 28px rgba(0,0,0,0.10); }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-    .nav-logo-img {
-      width: 56px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-img { width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; }
     .nav-logo-img img { width: 100%; height: 100%; object-fit: contain; }
-    .nav-logo-img .logo-placeholder {
-      font-size: 11px;
-      color: var(--gray-400);
-      text-align: center;
-      line-height: 1.3;
-      padding: 4px;
-      font-weight: 600;
-    }
     .nav-logo-text { display: flex; flex-direction: column; }
-    .nav-logo-text span:first-child {
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--black);
-      letter-spacing: -0.5px;
-      line-height: 1.15;
-    }
-    .nav-logo-text span:last-child {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--gray-400);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--gray-800);
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      transition: color var(--transition);
-      position: relative;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 1.5px;
-      background: var(--black);
-      transition: width var(--transition);
-    }
+    .nav-logo-text span:first-child { font-size: 22px; font-weight: 800; color: var(--black); letter-spacing: -0.5px; line-height: 1.15; }
+    .nav-logo-text span:last-child { font-size: 12px; font-weight: 600; color: var(--gray-400); letter-spacing: 2px; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { text-decoration: none; font-size: 14px; font-weight: 700; color: var(--gray-800); letter-spacing: 0.5px; text-transform: uppercase; transition: color var(--transition); position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1.5px; background: var(--black); transition: width var(--transition); }
     .nav-links a:hover { color: var(--black); }
     .nav-links a:hover::after { width: 100%; }
-    .nav-cta {
-      background: var(--black);
-      color: var(--white) !important;
-      padding: 10px 22px;
-      border-radius: var(--radius);
-      font-size: 13px !important;
-      font-weight: 700 !important;
-      letter-spacing: 1px !important;
-      transition: background var(--transition), transform var(--transition) !important;
-    }
+    .nav-cta { background: var(--black); color: var(--white) !important; padding: 10px 22px; border-radius: var(--radius); font-size: 13px !important; font-weight: 700 !important; letter-spacing: 1px !important; transition: background var(--transition), transform var(--transition) !important; }
     .nav-cta::after { display: none !important; }
     .nav-cta:hover { background: var(--gold) !important; color: var(--black) !important; transform: translateY(-1px); }
-
-    .nav-burger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-    }
-    .nav-burger span {
-      display: block; width: 24px; height: 2px;
-      background: var(--black);
-      transition: var(--transition);
-    }
+    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-burger span { display: block; width: 24px; height: 2px; background: var(--black); transition: var(--transition); }
     .nav-burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
     .nav-burger.open span:nth-child(2) { opacity: 0; }
     .nav-burger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 72px; left: 0; right: 0;
-      background: var(--white);
-      border-bottom: 1px solid var(--gray-200);
-      z-index: 999;
-      padding: 20px 5%;
-      flex-direction: column;
-      gap: 16px;
-    }
+    .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--gray-200); z-index: 999; padding: 20px 5%; flex-direction: column; gap: 16px; }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--gray-600);
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      padding: 8px 0;
-      border-bottom: 1px solid var(--gray-100);
-    }
+    .mobile-menu a { text-decoration: none; font-size: 15px; font-weight: 600; color: var(--gray-600); letter-spacing: 0.8px; text-transform: uppercase; padding: 8px 0; border-bottom: 1px solid var(--gray-100); }
     .mobile-menu a:hover { color: var(--black); }
 
-    /* ── HERO — fits full viewport ── */
-    .hero {
-      margin-top: 72px;
-      height: calc(100vh - 72px);
-      min-height: 520px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0 5%;
-      background: var(--white);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-bg-text {
-      position: absolute;
-      right: -2%;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: clamp(80px, 14vw, 220px);
-      font-weight: 800;
-      color: var(--gray-100);
-      letter-spacing: -8px;
-      user-select: none;
-      pointer-events: none;
-      line-height: 1;
-      white-space: nowrap;
-    }
-    .hero-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-    .hero-label::before {
-      content: '';
-      display: block;
-      width: 28px; height: 1.5px;
-      background: var(--gold);
-    }
-    .hero h1 {
-      font-size: clamp(36px, 5.5vw, 78px);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -2px;
-      color: var(--black);
-      max-width: 700px;
-      position: relative;
-      z-index: 1;
-    }
+    /* ── HERO ── */
+    .hero { margin-top: 72px; height: calc(100vh - 72px); min-height: 520px; display: flex; flex-direction: column; justify-content: center; padding: 0 5%; background: var(--white); position: relative; overflow: hidden; }
+    .hero-bg-text { position: absolute; right: -2%; top: 50%; transform: translateY(-50%); font-size: clamp(80px, 14vw, 220px); font-weight: 800; color: var(--gray-100); letter-spacing: -8px; user-select: none; pointer-events: none; line-height: 1; white-space: nowrap; }
+    .hero-label { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .hero-label::before { content: ''; display: block; width: 28px; height: 1.5px; background: var(--gold); }
+    .hero h1 { font-size: clamp(36px, 5.5vw, 78px); font-weight: 800; line-height: 1.05; letter-spacing: -2px; color: var(--black); max-width: 700px; position: relative; z-index: 1; }
     .hero h1 em { font-style: normal; color: var(--gold); }
-    .hero-sub {
-      font-size: clamp(15px, 1.6vw, 18px);
-      color: var(--gray-600);
-      max-width: 520px;
-      margin-top: 16px;
-      font-weight: 400;
-      line-height: 1.7;
-      position: relative;
-      z-index: 1;
-    }
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-top: 28px;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
-    }
-    .btn-primary {
-      background: var(--black);
-      color: var(--white);
-      padding: 14px 32px;
-      border-radius: var(--radius);
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background var(--transition), transform var(--transition);
-      display: inline-block;
-    }
+    .hero-sub { font-size: clamp(15px, 1.6vw, 18px); color: var(--gray-600); max-width: 520px; margin-top: 16px; font-weight: 400; line-height: 1.7; position: relative; z-index: 1; }
+    .hero-actions { display: flex; align-items: center; gap: 14px; margin-top: 28px; flex-wrap: wrap; position: relative; z-index: 1; }
+    .btn-primary { background: var(--black); color: var(--white); padding: 14px 32px; border-radius: var(--radius); font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; transition: background var(--transition), transform var(--transition); display: inline-block; }
     .btn-primary:hover { background: var(--gold); color: var(--black); transform: translateY(-2px); }
-    .btn-outline {
-      border: 1.5px solid var(--black);
-      color: var(--black);
-      padding: 13px 32px;
-      border-radius: var(--radius);
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background var(--transition), color var(--transition), transform var(--transition);
-      display: inline-block;
-    }
+    .btn-outline { border: 1.5px solid var(--black); color: var(--black); padding: 13px 32px; border-radius: var(--radius); font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; transition: background var(--transition), color var(--transition), transform var(--transition); display: inline-block; }
     .btn-outline:hover { background: var(--black); color: var(--white); transform: translateY(-2px); }
-
-    .hero-stats {
-      display: flex;
-      gap: 40px;
-      margin-top: 36px;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
-    }
-    .hero-stat .num {
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--black);
-      letter-spacing: -1px;
-      line-height: 1;
-    }
+    .hero-stats { display: flex; gap: 40px; margin-top: 36px; flex-wrap: wrap; position: relative; z-index: 1; }
+    .hero-stat .num { font-size: 36px; font-weight: 800; color: var(--black); letter-spacing: -1px; line-height: 1; }
     .hero-stat .num span { color: var(--gold); }
-    .hero-stat .lbl {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--gray-400);
-      margin-top: 5px;
-    }
+    .hero-stat .lbl { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-400); margin-top: 5px; }
 
-    /* ── DIVIDER ── */
-    .section-divider { width: 90%; height: 1px; background: var(--gray-200); margin: 0 5%; }
-
-    /* ── SECTION COMMONS ── */
+    /* ── SECTIONS ── */
     section { padding: 88px 5%; }
     .section-header { margin-bottom: 48px; }
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 12px;
-    }
+    .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
     .section-label::before { content: ''; display: block; width: 24px; height: 1.5px; background: var(--gold); }
-    .section-title {
-      font-size: clamp(28px, 4vw, 50px);
-      font-weight: 800;
-      letter-spacing: -1.2px;
-      line-height: 1.1;
-      color: var(--black);
-      max-width: 600px;
-    }
-    .section-desc {
-      font-size: 16px;
-      color: var(--gray-600);
-      max-width: 560px;
-      margin-top: 14px;
-      line-height: 1.75;
-    }
+    .section-title { font-size: clamp(28px, 4vw, 50px); font-weight: 800; letter-spacing: -1.2px; line-height: 1.1; color: var(--black); max-width: 600px; }
+    .section-desc { font-size: 16px; color: var(--gray-600); max-width: 560px; margin-top: 14px; line-height: 1.75; }
 
-    /* ── WHY CHOOSE US ── */
+    /* ── WHY ── */
     .why { background: var(--gray-50); }
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      background: var(--gray-200);
-      border: 1px solid var(--gray-200);
-    }
-    .why-card {
-      background: var(--white);
-      padding: 40px 32px;
-      transition: background var(--transition);
-      cursor: default;
-    }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--gray-200); border: 1px solid var(--gray-200); }
+    .why-card { background: var(--white); padding: 40px 32px; transition: background var(--transition); cursor: default; }
     .why-card:hover { background: var(--black); }
-    .why-card:hover .why-icon { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); }
-    .why-card:hover .why-icon svg path,
-    .why-card:hover .why-icon svg rect,
-    .why-card:hover .why-icon svg circle,
-    .why-card:hover .why-icon svg polyline { stroke: var(--gold); }
+    .why-card:hover .why-icon { border-color: rgba(255,255,255,0.15); }
+    .why-card:hover .why-icon svg path, .why-card:hover .why-icon svg rect, .why-card:hover .why-icon svg circle, .why-card:hover .why-icon svg polyline { stroke: var(--gold); }
     .why-card:hover .why-title { color: var(--white); }
     .why-card:hover .why-text { color: rgba(255,255,255,0.65); }
-    .why-icon {
-      width: 52px; height: 52px;
-      border: 1.5px solid var(--gray-200);
-      border-radius: var(--radius);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 20px;
-      transition: var(--transition);
-    }
+    .why-icon { width: 52px; height: 52px; border: 1.5px solid var(--gray-200); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; transition: var(--transition); }
     .why-icon svg { width: 22px; height: 22px; }
-    .why-icon svg path, .why-icon svg rect, .why-icon svg circle, .why-icon svg polyline {
-      stroke: var(--black);
-      transition: stroke var(--transition);
-    }
+    .why-icon svg path, .why-icon svg rect, .why-icon svg circle, .why-icon svg polyline { stroke: var(--black); transition: stroke var(--transition); }
     .why-title { font-size: 17px; font-weight: 700; color: var(--black); margin-bottom: 8px; transition: color var(--transition); }
     .why-text { font-size: 14px; color: var(--gray-600); line-height: 1.7; transition: color var(--transition); }
 
     /* ── SERVICES ── */
     .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-    .service-card {
-      border: 1px solid var(--gray-200);
-      padding: 36px 28px;
-      border-radius: var(--radius);
-      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
-    }
-    .service-card:hover {
-      border-color: var(--black);
-      box-shadow: 4px 4px 0 var(--black);
-      transform: translate(-2px, -2px);
-    }
+    .service-card { border: 1px solid var(--gray-200); padding: 36px 28px; border-radius: var(--radius); transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition); }
+    .service-card:hover { border-color: var(--black); box-shadow: 4px 4px 0 var(--black); transform: translate(-2px, -2px); }
     .service-num { font-size: 12px; font-weight: 700; letter-spacing: 2px; color: var(--gold); margin-bottom: 18px; }
     .service-title { font-size: 18px; font-weight: 700; color: var(--black); margin-bottom: 10px; letter-spacing: -0.3px; }
     .service-text { font-size: 14px; color: var(--gray-600); line-height: 1.7; }
@@ -397,118 +108,20 @@
     /* ── PROPERTIES ── */
     .properties { background: var(--white); }
     .properties-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .prop-card { border: 1px solid var(--gray-200); border-radius: var(--radius); overflow: hidden; transition: box-shadow var(--transition), transform var(--transition); will-change: transform; }
+    .prop-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.1); transform: translateY(-4px); }
 
-    .prop-card {
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: box-shadow var(--transition), transform var(--transition);
-      will-change: transform;
-    }
-    .prop-card:hover {
-      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
-      transform: translateY(-4px);
-    }
-
-    /* ── IMAGE SLIDER ── */
-    .prop-slider {
-      position: relative;
-      aspect-ratio: 4/3;
-      background: var(--gray-100);
-      overflow: hidden;
-    }
-    .slider-track {
-      display: flex;
-      width: 300%;
-      height: 100%;
-      transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
-      will-change: transform;
-    }
-    .slider-slide {
-      width: calc(100% / 3);
-      height: 100%;
-      flex-shrink: 0;
-      background: var(--gray-100);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-    }
-    .slider-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .slide-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      color: var(--gray-400);
-      width: 100%;
-      height: 100%;
-    }
-    .slide-placeholder svg { width: 36px; height: 36px; opacity: 0.4; }
-    .slide-placeholder span { font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
-
-    .prop-badge {
-      position: absolute;
-      top: 12px; left: 12px;
-      background: var(--black);
-      color: var(--white);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 5px 11px;
-      border-radius: 2px;
-      z-index: 5;
-    }
+    /* ── SLIDER ── */
+    .prop-slider { position: relative; aspect-ratio: 4/3; background: var(--gray-100); overflow: hidden; }
+    .slider-track { display: flex; width: 300%; height: 100%; transition: transform 0.55s cubic-bezier(0.4,0,0.2,1); will-change: transform; }
+    .slider-slide { width: calc(100% / 3); height: 100%; flex-shrink: 0; overflow: hidden; }
+    .slider-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .prop-badge { position: absolute; top: 12px; left: 12px; background: var(--black); color: var(--white); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 11px; border-radius: 2px; z-index: 5; }
     .prop-badge.gold { background: var(--gold); color: var(--black); }
-
-    /* Slider dots */
-    .slider-dots {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 6px;
-      z-index: 5;
-    }
-    .slider-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.5);
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .slider-dot.active {
-      background: var(--white);
-      transform: scale(1.3);
-    }
-
-    /* Slider arrows */
-    .slider-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 32px; height: 32px;
-      background: rgba(255,255,255,0.85);
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 5;
-      transition: background 0.2s, opacity 0.2s;
-      opacity: 0;
-    }
+    .slider-dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 5; }
+    .slider-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.5); border: none; cursor: pointer; padding: 0; transition: background 0.2s, transform 0.2s; }
+    .slider-dot.active { background: var(--white); transform: scale(1.3); }
+    .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: rgba(255,255,255,0.85); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 5; opacity: 0; transition: opacity 0.2s; }
     .prop-slider:hover .slider-arrow { opacity: 1; }
     .slider-arrow:hover { background: var(--white); }
     .slider-arrow.prev { left: 10px; }
@@ -519,109 +132,37 @@
     .prop-body { padding: 24px; }
     .prop-type { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
     .prop-name { font-size: 18px; font-weight: 700; color: var(--black); letter-spacing: -0.3px; margin-bottom: 6px; }
-    .prop-loc {
-      font-size: 13px;
-      color: var(--gray-400);
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      margin-bottom: 10px;
-    }
+    .prop-loc { font-size: 13px; color: var(--gray-400); display: flex; align-items: center; gap: 4px; margin-bottom: 10px; }
     .prop-loc svg { width: 13px; height: 13px; flex-shrink: 0; }
     .prop-loc svg path { stroke: var(--gray-400); }
-    .prop-highlights {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-bottom: 14px;
-    }
-    .prop-highlight {
-      font-size: 13px;
-      color: var(--gray-600);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .prop-highlight::before {
-      content: '';
-      display: block;
-      width: 5px; height: 5px;
-      background: var(--gold);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .prop-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 14px;
-      border-top: 1px solid var(--gray-100);
-    }
+    .prop-highlights { display: flex; flex-direction: column; gap: 4px; margin-bottom: 14px; }
+    .prop-highlight { font-size: 13px; color: var(--gray-600); display: flex; align-items: center; gap: 6px; }
+    .prop-highlight::before { content: ''; display: block; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+    .prop-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--gray-100); }
     .prop-price { font-size: 16px; font-weight: 700; color: var(--black); }
     .prop-price span { font-size: 12px; font-weight: 400; color: var(--gray-400); }
-    .prop-btn {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: var(--black);
-      text-decoration: none;
-      border-bottom: 1.5px solid var(--black);
-      padding-bottom: 1px;
-      transition: color var(--transition), border-color var(--transition);
-    }
+    .prop-btn { font-size: 12px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--black); text-decoration: none; border-bottom: 1.5px solid var(--black); padding-bottom: 1px; transition: color var(--transition), border-color var(--transition); }
     .prop-btn:hover { color: var(--gold); border-color: var(--gold); }
 
     /* ── ABOUT ── */
     .about { background: var(--gray-50); }
     .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-    .about-box-main {
-      background: var(--black);
-      color: var(--white);
-      padding: 48px 44px;
-      border-radius: var(--radius);
-      position: relative;
-    }
-    .about-box-main .big-num {
-      font-size: 76px; font-weight: 800; letter-spacing: -4px; color: var(--white); line-height: 1;
-    }
+    .about-visual { position: relative; }
+    .about-box-main { background: var(--black); color: var(--white); padding: 48px 44px; border-radius: var(--radius); }
+    .about-box-main .big-num { font-size: 76px; font-weight: 800; letter-spacing: -4px; color: var(--white); line-height: 1; }
     .about-box-main .big-num span { color: var(--gold); }
     .about-box-main p { font-size: 15px; color: rgba(255,255,255,0.65); margin-top: 12px; line-height: 1.7; }
-    .about-box-float {
-      position: absolute;
-      bottom: -20px; right: -20px;
-      background: var(--gold);
-      padding: 24px 28px;
-      border-radius: var(--radius);
-    }
+    .about-box-float { position: absolute; bottom: -20px; right: -20px; background: var(--gold); padding: 24px 28px; border-radius: var(--radius); }
     .about-box-float .num { font-size: 34px; font-weight: 800; color: var(--black); line-height: 1; }
     .about-box-float .lbl { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(0,0,0,0.6); margin-top: 4px; }
     .about-list { margin-top: 28px; list-style: none; display: flex; flex-direction: column; gap: 14px; }
-    .about-list li {
-      display: flex; gap: 12px; align-items: flex-start;
-      font-size: 15px; color: var(--gray-600); line-height: 1.65;
-    }
-    .about-list li::before {
-      content: '';
-      display: block; width: 20px; height: 20px;
-      background: var(--black);
-      border-radius: 50%;
-      flex-shrink: 0; margin-top: 2px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: center;
-    }
+    .about-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: var(--gray-600); line-height: 1.65; }
+    .about-list li::before { content: ''; display: block; width: 20px; height: 20px; background: var(--black); border-radius: 50%; flex-shrink: 0; margin-top: 2px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: center; }
 
     /* ── LOCATIONS ── */
     .locations { background: var(--white); }
-    .locations-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 2px; background: var(--gray-200); border: 1px solid var(--gray-200);
-    }
-    .loc-card {
-      background: var(--white); padding: 36px 28px;
-      transition: background var(--transition); cursor: default;
-    }
+    .locations-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--gray-200); border: 1px solid var(--gray-200); }
+    .loc-card { background: var(--white); padding: 36px 28px; transition: background var(--transition); cursor: default; }
     .loc-card:hover { background: var(--black); }
     .loc-card:hover .loc-icon { color: var(--gold); }
     .loc-card:hover .loc-name { color: var(--white); }
@@ -635,33 +176,14 @@
     .contact .section-label { color: var(--gold); }
     .contact .section-label::before { background: var(--gold); }
     .contact .section-title { color: var(--white); }
-    .contact .section-desc { color: rgba(255,255,255,0.6); }
+    .contact .section-desc { color: rgba(255,255,255,0.6); font-size: 16px; margin-top: 14px; }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
     .contact-cards { display: flex; flex-direction: column; gap: 14px; margin-top: 36px; }
-    .contact-card {
-      display: flex; align-items: center; gap: 18px;
-      padding: 22px 24px;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius);
-      text-decoration: none;
-      transition: background var(--transition), border-color var(--transition), transform var(--transition);
-    }
-    .contact-card:hover {
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(255,255,255,0.25);
-      transform: translateX(4px);
-    }
-    .contact-card-icon {
-      width: 48px; height: 48px;
-      background: rgba(255,255,255,0.08);
-      border-radius: var(--radius);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      transition: background var(--transition);
-    }
+    .contact-card { display: flex; align-items: center; gap: 18px; padding: 22px 24px; border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); text-decoration: none; transition: background var(--transition), border-color var(--transition), transform var(--transition); }
+    .contact-card:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.25); transform: translateX(4px); }
+    .contact-card-icon { width: 48px; height: 48px; background: rgba(255,255,255,0.08); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background var(--transition); }
     .contact-card:hover .contact-card-icon { background: var(--gold); }
-    .contact-card:hover .contact-card-icon svg path,
-    .contact-card:hover .contact-card-icon svg polyline { stroke: var(--black); }
+    .contact-card:hover .contact-card-icon svg path, .contact-card:hover .contact-card-icon svg polyline { stroke: var(--black); }
     .contact-card-icon svg { width: 20px; height: 20px; }
     .contact-card-icon svg path, .contact-card-icon svg polyline { stroke: var(--white); }
     .contact-card-label { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 3px; }
@@ -669,148 +191,42 @@
     .contact-info-block { margin-top: 8px; }
     .contact-info-block h3 { font-size: 22px; font-weight: 700; color: var(--white); letter-spacing: -0.4px; margin-bottom: 10px; }
     .contact-info-block p { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 14px; }
-    .contact-address {
-      display: flex; align-items: flex-start; gap: 12px;
-      padding: 20px 24px;
-      background: rgba(255,255,255,0.05);
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.08);
-      margin-top: 24px;
-    }
+    .contact-address { display: flex; align-items: flex-start; gap: 12px; padding: 20px 24px; background: rgba(255,255,255,0.05); border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.08); margin-top: 24px; }
     .contact-address svg { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; }
     .contact-address svg path { stroke: var(--gold); }
     .contact-address span { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; }
-    .contact .section-desc { font-size: 16px; margin-top: 14px; }
 
-    /* ── FOOTER (WHITE) ── */
-    footer {
-      background: var(--white);
-      border-top: 1px solid var(--gray-200);
-      padding: 56px 5% 36px;
-    }
-
-    /* Big brand name row */
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
-      padding-bottom: 40px;
-      border-bottom: 1px solid var(--gray-200);
-    }
-    .footer-brand-left {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    .footer-logo-img {
-      width: 92px; height: 92px;
-      border-radius: var(--radius);
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden; flex-shrink: 0;
-    }
+    /* ── FOOTER ── */
+    footer { background: var(--white); border-top: 1px solid var(--gray-200); padding: 56px 5% 36px; }
+    .footer-brand { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--gray-200); }
+    .footer-brand-left { display: flex; align-items: center; gap: 20px; }
+    .footer-logo-img { width: 72px; height: 72px; border: 1.5px solid var(--gray-200); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; }
     .footer-logo-img img { width: 100%; height: 100%; object-fit: contain; }
-    .footer-logo-img .logo-placeholder { font-size: 9px; color: var(--gray-400); text-align: center; padding: 3px; line-height: 1.2; font-weight: 600; }
-    .footer-brand-name {
-      font-size: clamp(28px, 4vw, 52px);
-      font-weight: 800;
-      color: var(--black);
-      letter-spacing: -2px;
-      line-height: 1;
-    }
+    .footer-brand-name { font-size: clamp(28px, 4vw, 52px); font-weight: 800; color: var(--black); letter-spacing: -2px; line-height: 1; }
     .footer-brand-name span { color: var(--gold); }
-    .footer-brand-tagline {
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--gray-400);
-      margin-top: 6px;
-    }
-
-    /* Social icons (right side of brand row) */
-    .footer-social {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .footer-social-link {
-      width: 44px; height: 44px;
-      border: 1.5px solid var(--gray-200);
-      border-radius: var(--radius);
-      display: flex; align-items: center; justify-content: center;
-      text-decoration: none;
-      color: var(--gray-600);
-      transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
-    }
+    .footer-brand-tagline { font-size: 13px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gray-400); margin-top: 6px; }
+    .footer-social { display: flex; align-items: center; gap: 10px; }
+    .footer-social-link { width: 44px; height: 44px; border: 1.5px solid var(--gray-200); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--gray-600); transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition); }
     .footer-social-link:hover { background: var(--black); border-color: var(--black); color: var(--white); transform: translateY(-2px); }
     .footer-social-link svg { width: 18px; height: 18px; }
-
-    /* Bottom bar */
-    .footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
     .footer-copy { font-size: 13px; color: var(--gray-400); }
     .footer-links { display: flex; gap: 24px; }
     .footer-links a { font-size: 13px; color: var(--gray-400); text-decoration: none; transition: color var(--transition); }
     .footer-links a:hover { color: var(--black); }
 
-    @media (max-width: 640px) {
-      .footer-brand { flex-direction: column; align-items: flex-start; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; }
-    }
-
     /* ── RESPONSIVE ── */
-    @media (max-width: 1100px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .why-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 900px) {
-      .properties-grid { grid-template-columns: repeat(2, 1fr); }
-      .about-inner { grid-template-columns: 1fr; gap: 48px; }
-      .about-box-float { right: 0; bottom: -16px; }
-      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-      .locations-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-burger { display: flex; }
-      section { padding: 64px 5%; }
-      .hero-bg-text { display: none; }
-      .about-box-float { position: static; margin-top: 14px; }
-    }
-    @media (max-width: 560px) {
-      .properties-grid { grid-template-columns: 1fr; }
-      .why-grid { grid-template-columns: 1fr; }
-      .services-grid { grid-template-columns: 1fr; }
-      .locations-grid { grid-template-columns: 1fr; }
-      .hero-actions { flex-direction: column; align-items: flex-start; }
-      .about-box-float { right: 0; bottom: -16px; }
-      .contact-card-value { font-size: 13px; word-break: break-all; }
-      nav { padding: 0 4%; }
-      section { padding: 52px 4%; }
-      .hero { padding: 0 4%; }
-    }
+    @media (max-width: 1100px) { .services-grid { grid-template-columns: repeat(2, 1fr); } .why-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 900px) { .properties-grid { grid-template-columns: repeat(2, 1fr); } .about-inner { grid-template-columns: 1fr; gap: 48px; } .about-box-float { right: 0; bottom: -16px; } .contact-grid { grid-template-columns: 1fr; gap: 40px; } .locations-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { .nav-links { display: none; } .nav-burger { display: flex; } section { padding: 64px 5%; } .hero-bg-text { display: none; } .about-box-float { position: static; margin-top: 14px; } }
+    @media (max-width: 640px) { .footer-brand { flex-direction: column; align-items: flex-start; } .footer-bottom { flex-direction: column; align-items: flex-start; } }
+    @media (max-width: 560px) { .properties-grid { grid-template-columns: 1fr; } .why-grid { grid-template-columns: 1fr; } .services-grid { grid-template-columns: 1fr; } .locations-grid { grid-template-columns: 1fr; } .hero-actions { flex-direction: column; align-items: flex-start; } .about-box-float { right: 0; } .contact-card-value { font-size: 13px; word-break: break-all; } nav { padding: 0 4%; } section { padding: 52px 4%; } .hero { padding: 0 4%; } }
 
     /* ── ANIMATIONS ── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
-    .d1 { transition-delay: 0.05s; }
-    .d2 { transition-delay: 0.12s; }
-    .d3 { transition-delay: 0.19s; }
-    .d4 { transition-delay: 0.26s; }
-    .d5 { transition-delay: 0.33s; }
-    .d6 { transition-delay: 0.40s; }
+    .d1 { transition-delay: 0.05s; } .d2 { transition-delay: 0.12s; } .d3 { transition-delay: 0.19s; }
+    .d4 { transition-delay: 0.26s; } .d5 { transition-delay: 0.33s; } .d6 { transition-delay: 0.40s; }
   </style>
 </head>
 <body>
@@ -818,9 +234,7 @@
   <!-- NAVBAR -->
   <nav id="navbar">
     <a href="#" class="nav-logo">
-      <div class="nav-logo-img">
-        <div class="logo-placeholder"><img src="logo.jpeg" alt="Udaipur360Property"></div>
-      </div>
+      <div class="nav-logo-img"><img src="logo.jpeg" alt="Udaipur360Property"></div>
       <div class="nav-logo-text">
         <span>Udaipur360</span>
         <span>Property</span>
@@ -833,9 +247,7 @@
       <li><a href="#locations">Locations</a></li>
       <li><a href="#contact" class="nav-cta">Contact Us</a></li>
     </ul>
-    <div class="nav-burger" id="burger">
-      <span></span><span></span><span></span>
-    </div>
+    <div class="nav-burger" id="burger"><span></span><span></span><span></span></div>
   </nav>
 
   <!-- MOBILE MENU -->
@@ -858,18 +270,9 @@
       <a href="#contact" class="btn-outline">Get Free Consultation</a>
     </div>
     <div class="hero-stats fade-up visible d4">
-      <div class="hero-stat">
-        <div class="num">150<span>+</span></div>
-        <div class="lbl">Happy Clients</div>
-      </div>
-      <div class="hero-stat">
-        <div class="num">15<span>+</span></div>
-        <div class="lbl">Prime Locations</div>
-      </div>
-      <div class="hero-stat">
-        <div class="num">100<span>%</span></div>
-        <div class="lbl">Clear Title</div>
-      </div>
+      <div class="hero-stat"><div class="num">150<span>+</span></div><div class="lbl">Happy Clients</div></div>
+      <div class="hero-stat"><div class="num">15<span>+</span></div><div class="lbl">Prime Locations</div></div>
+      <div class="hero-stat"><div class="num">100<span>%</span></div><div class="lbl">Clear Title</div></div>
     </div>
   </section>
 
@@ -882,57 +285,32 @@
     </div>
     <div class="why-grid">
       <div class="why-card fade-up d1">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-        </div>
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <div class="why-title">Clear Title &amp; Legal Verification</div>
         <div class="why-text">All properties come with fully verified documentation and clear ownership records — zero legal hassles.</div>
       </div>
       <div class="why-card fade-up d2">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
-          </svg>
-        </div>
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
         <div class="why-title">Affordable &amp; Easy Payments</div>
         <div class="why-text">Competitive pricing with flexible payment plans designed to fit your budget and investment goals.</div>
       </div>
       <div class="why-card fade-up d3">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-          </svg>
-        </div>
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <div class="why-title">100% Customer Satisfaction</div>
         <div class="why-text">We build long-term relationships. Your confidence in us is the foundation of every deal we close.</div>
       </div>
       <div class="why-card fade-up d4">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-          </svg>
-        </div>
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <div class="why-title">Prime Location Properties</div>
         <div class="why-text">Strategically selected plots near roads, schools, hospitals, and markets in Udaipur's growth corridors.</div>
       </div>
       <div class="why-card fade-up d5">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/>
-          </svg>
-        </div>
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg></div>
         <div class="why-title">Transparent Dealings</div>
         <div class="why-text">From pricing to paperwork, every step is explained clearly. No surprises, no hidden fees and no <b>Brokerage</b> — ever.</div>
       </div>
       <div class="why-card fade-up d6">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-          </svg>
-        </div>
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
         <div class="why-title">Booking to Registration Support</div>
         <div class="why-text">We stay with you through the entire process — site visit, booking, documentation, and final registration.</div>
       </div>
@@ -947,30 +325,14 @@
       <p class="section-desc fade-up d2">Comprehensive real estate solutions tailored for homebuyers, investors, and businesses.</p>
     </div>
     <div class="services-grid">
-      <div class="service-card fade-up d1">
-        <div class="service-num">01</div>
-        <div class="service-title">Residential Plots</div>
-        <div class="service-text">Well-developed plots in fast-growing areas of Udaipur, ideal for building your dream home with all basic amenities nearby.</div>
-      </div>
-      <div class="service-card fade-up d2">
-        <div class="service-num">02</div>
-        <div class="service-title">Commercial Plots</div>
-        <div class="service-text">Best-located commercial land for shops, offices, and business hubs — positioned in high-footfall, high-demand zones.</div>
-      </div>
-      <div class="service-card fade-up d3">
-        <div class="service-num">03</div>
-        <div class="service-title">Investment Properties</div>
-        <div class="service-text">High-return properties with strong appreciation potential in Udaipur's emerging corridors and strategic growth zones.</div>
-      </div>
-      <div class="service-card fade-up d4">
-        <div class="service-num">04</div>
-        <div class="service-title">Property Consultation</div>
-        <div class="service-text">Expert, unbiased guidance to help you choose the right property based on your budget, goals, and timeline.</div>
-      </div>
+      <div class="service-card fade-up d1"><div class="service-num">01</div><div class="service-title">Residential Plots</div><div class="service-text">Well-developed plots in fast-growing areas of Udaipur, ideal for building your dream home with all basic amenities nearby.</div></div>
+      <div class="service-card fade-up d2"><div class="service-num">02</div><div class="service-title">Commercial Plots</div><div class="service-text">Best-located commercial land for shops, offices, and business hubs — positioned in high-footfall, high-demand zones.</div></div>
+      <div class="service-card fade-up d3"><div class="service-num">03</div><div class="service-title">Investment Properties</div><div class="service-text">High-return properties with strong appreciation potential in Udaipur's emerging corridors and strategic growth zones.</div></div>
+      <div class="service-card fade-up d4"><div class="service-num">04</div><div class="service-title">Property Consultation</div><div class="service-text">Expert, unbiased guidance to help you choose the right property based on your budget, goals, and timeline.</div></div>
     </div>
   </section>
 
-  <!-- PROPERTIES SHOWCASE — 3 properties with image sliders -->
+  <!-- PROPERTIES -->
   <section class="properties" id="properties">
     <div class="section-header">
       <div class="section-label fade-up">Our Properties</div>
@@ -979,77 +341,7 @@
     </div>
     <div class="properties-grid">
 
-      <!-- Property 1: Boyna Plan -->
-      <div class="prop-card fade-up d1">
-        <div class="prop-slider" id="slider-1">
-          <div class="prop-badge gold">Featured</div>
-          <div class="slider-track" id="track-1">
-            <div class="slider-slide">
-              <div class="slide-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-                </svg>
-                <span><img src="Boyna1.jpeg" alt=""></span>
-              </div>
-            </div>
-            <div class="slider-slide">
-              <div class="slide-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-                </svg>
-                <span><img src="Boyna2.jpeg" alt=""></span>
-              </div>
-            </div>
-            <div class="slider-slide">
-              <div class="slide-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-                </svg>
-                <span><img src="Boyna3.jpeg" alt=""></span>
-              </div>
-            </div>
-          </div>
-          <button class="slider-arrow prev" onclick="slideMove('slider-1',-1)">
-            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <button class="slider-arrow next" onclick="slideMove('slider-1',1)">
-            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
-          <div class="slider-dots" id="dots-1">
-            <button class="slider-dot active" onclick="slideTo('slider-1',0)"></button>
-            <button class="slider-dot" onclick="slideTo('slider-1',1)"></button>
-            <button class="slider-dot" onclick="slideTo('slider-1',2)"></button>
-          </div>
-        </div>
-        <div class="prop-body">
-          <div class="prop-type">Residential Plot</div>
-          <div class="prop-name">Boyna Plan</div>
-          <div class="prop-loc">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Mavli Road, Udaipur (12 km before Mavli)
-          </div>
-          <div class="prop-highlights">
-            <span class="prop-highlight">Pure residential population</span>
-            <span class="prop-highlight">Near farmhouses &amp; established houses</span>
-            <span class="prop-highlight">Peaceful, green surroundings</span>
-          </div>
-          <div class="prop-footer">
-            <div class="prop-price">Contact <span>for pricing</span></div>
-            <a href="#contact" class="prop-btn">Enquire →</a>
-          </div>
-        </div>
-      </div>
-
-  <!-- PROPERTIES SHOWCASE — 3 properties with image sliders -->
-  <section class="properties" id="properties">
-    <div class="section-header">
-      <div class="section-label fade-up">Our Properties</div>
-      <h2 class="section-title fade-up d1">Featured Projects</h2>
-      <p class="section-desc fade-up d2">Explore our current listings — prime plots ready for booking in Udaipur's best locations.</p>
-    </div>
-    <div class="properties-grid">
-
-      <!-- Property 1: Boyna Plan -->
+      <!-- Boyna Plan -->
       <div class="prop-card fade-up d1">
         <div class="prop-slider" id="slider-1">
           <div class="prop-badge gold">Featured</div>
@@ -1058,12 +350,8 @@
             <div class="slider-slide"><img src="Boyna2.jpeg" alt="Boyna Plan - View 2"></div>
             <div class="slider-slide"><img src="Boyna3.jpeg" alt="Boyna Plan - View 3"></div>
           </div>
-          <button class="slider-arrow prev" onclick="slideMove('slider-1',-1)">
-            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <button class="slider-arrow next" onclick="slideMove('slider-1',1)">
-            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
+          <button class="slider-arrow prev" onclick="slideMove('slider-1',-1)"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button class="slider-arrow next" onclick="slideMove('slider-1',1)"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
           <div class="slider-dots" id="dots-1">
             <button class="slider-dot active" onclick="slideTo('slider-1',0)"></button>
             <button class="slider-dot" onclick="slideTo('slider-1',1)"></button>
@@ -1073,10 +361,7 @@
         <div class="prop-body">
           <div class="prop-type">Residential Plot</div>
           <div class="prop-name">Boyna Plan</div>
-          <div class="prop-loc">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Mavli Road, Udaipur (12 km before Mavli)
-          </div>
+          <div class="prop-loc"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Mavli Road, Udaipur (12 km before Mavli)</div>
           <div class="prop-highlights">
             <span class="prop-highlight">Pure residential population</span>
             <span class="prop-highlight">Near farmhouses &amp; established houses</span>
@@ -1089,7 +374,7 @@
         </div>
       </div>
 
-      <!-- Property 2: Sakroda (Converted Plan) -->
+      <!-- Sakroda -->
       <div class="prop-card fade-up d2">
         <div class="prop-slider" id="slider-2">
           <div class="prop-badge">Converted Plan</div>
@@ -1098,12 +383,8 @@
             <div class="slider-slide"><img src="Sakroda2.jpeg" alt="Sakroda - View 2"></div>
             <div class="slider-slide"><img src="Sakroda3.jpeg" alt="Sakroda - View 3"></div>
           </div>
-          <button class="slider-arrow prev" onclick="slideMove('slider-2',-1)">
-            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <button class="slider-arrow next" onclick="slideMove('slider-2',1)">
-            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
+          <button class="slider-arrow prev" onclick="slideMove('slider-2',-1)"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button class="slider-arrow next" onclick="slideMove('slider-2',1)"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
           <div class="slider-dots" id="dots-2">
             <button class="slider-dot active" onclick="slideTo('slider-2',0)"></button>
             <button class="slider-dot" onclick="slideTo('slider-2',1)"></button>
@@ -1113,10 +394,7 @@
         <div class="prop-body">
           <div class="prop-type">Residential Plot</div>
           <div class="prop-name">Sakroda — Converted Plan</div>
-          <div class="prop-loc">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Sakroda, Udaipur
-          </div>
+          <div class="prop-loc"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Sakroda, Udaipur</div>
           <div class="prop-highlights">
             <span class="prop-highlight">Opposite Government School</span>
             <span class="prop-highlight">Opposite 150 Ft Proposed Road</span>
@@ -1129,7 +407,7 @@
         </div>
       </div>
 
-      <!-- Property 3: Devgrah Farms -->
+      <!-- Devgrah Farms -->
       <div class="prop-card fade-up d3">
         <div class="prop-slider" id="slider-3">
           <div class="prop-badge gold">Farm Land</div>
@@ -1138,12 +416,8 @@
             <div class="slider-slide"><img src="Devgarh2.jpeg" alt="Devgrah Farms - View 2"></div>
             <div class="slider-slide"><img src="Devgarh3.jpeg" alt="Devgrah Farms - View 3"></div>
           </div>
-          <button class="slider-arrow prev" onclick="slideMove('slider-3',-1)">
-            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <button class="slider-arrow next" onclick="slideMove('slider-3',1)">
-            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
+          <button class="slider-arrow prev" onclick="slideMove('slider-3',-1)"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button class="slider-arrow next" onclick="slideMove('slider-3',1)"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
           <div class="slider-dots" id="dots-3">
             <button class="slider-dot active" onclick="slideTo('slider-3',0)"></button>
             <button class="slider-dot" onclick="slideTo('slider-3',1)"></button>
@@ -1153,10 +427,7 @@
         <div class="prop-body">
           <div class="prop-type">Farm Land</div>
           <div class="prop-name">Devgrah Farms</div>
-          <div class="prop-loc">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Sakroda, Udaipur
-          </div>
+          <div class="prop-loc"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Sakroda, Udaipur</div>
           <div class="prop-highlights">
             <span class="prop-highlight">Excellent location in Sakroda</span>
             <span class="prop-highlight">Scenic &amp; serene surroundings</span>
@@ -1197,7 +468,7 @@
           <li>Honest advice, no pressure selling — your interest first</li>
           <li>Long-term client relationships built on trust</li>
         </ul>
-        <div style="margin-top: 32px;" class="fade-up d4">
+        <div style="margin-top:32px;" class="fade-up d4">
           <a href="#contact" class="btn-primary">Talk to an Expert</a>
         </div>
       </div>
@@ -1212,26 +483,10 @@
       <p class="section-desc fade-up d2">Properties in high-demand areas with excellent road access, utilities, and infrastructure.</p>
     </div>
     <div class="locations-grid">
-      <div class="loc-card fade-up d1">
-        <div class="loc-icon">🏙️</div>
-        <div class="loc-name">Ayad Road</div>
-        <div class="loc-detail">Central connectivity, near markets &amp; hospitals. Fast-growing residential zone.</div>
-      </div>
-      <div class="loc-card fade-up d2">
-        <div class="loc-icon">🌿</div>
-        <div class="loc-name">Hiran Magri</div>
-        <div class="loc-detail">Well-developed sector, excellent amenities and high appreciation potential.</div>
-      </div>
-      <div class="loc-card fade-up d3">
-        <div class="loc-icon">🏗️</div>
-        <div class="loc-name">Pratap Nagar</div>
-        <div class="loc-detail">Emerging investment zone with strong infrastructure development underway.</div>
-      </div>
-      <div class="loc-card fade-up d4">
-        <div class="loc-icon">🛣️</div>
-        <div class="loc-name">Bypass Road</div>
-        <div class="loc-detail">Ideal for commercial plots — high vehicular traffic and business potential.</div>
-      </div>
+      <div class="loc-card fade-up d1"><div class="loc-icon">🏙️</div><div class="loc-name">Ayad Road</div><div class="loc-detail">Central connectivity, near markets &amp; hospitals. Fast-growing residential zone.</div></div>
+      <div class="loc-card fade-up d2"><div class="loc-icon">🌿</div><div class="loc-name">Hiran Magri</div><div class="loc-detail">Well-developed sector, excellent amenities and high appreciation potential.</div></div>
+      <div class="loc-card fade-up d3"><div class="loc-icon">🏗️</div><div class="loc-name">Pratap Nagar</div><div class="loc-detail">Emerging investment zone with strong infrastructure development underway.</div></div>
+      <div class="loc-card fade-up d4"><div class="loc-icon">🛣️</div><div class="loc-name">Bypass Road</div><div class="loc-detail">Ideal for commercial plots — high vehicular traffic and business potential.</div></div>
     </div>
   </section>
 
@@ -1243,9 +498,7 @@
         <h2 class="section-title">Ready to Invest<br/>in Your Future?</h2>
         <p class="section-desc">Reach out to us — we're available on call, email, and WhatsApp. Let us help you turn your property dreams into reality.</p>
         <div class="contact-address">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <span>1st Floor, Titanium Plaza, Ayad Road,<br/>Near Thokhar Chouraha, Udaipur, Rajasthan</span>
         </div>
       </div>
@@ -1256,83 +509,47 @@
         </div>
         <div class="contact-cards">
           <a href="tel:+917665599457" class="contact-card">
-            <div class="contact-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.59 1.3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l1.02-.93a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-            </div>
-            <div class="contact-card-text">
-              <div class="contact-card-label">Call Us</div>
-              <div class="contact-card-value">+91 76655 99457</div>
-            </div>
+            <div class="contact-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.59 1.3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l1.02-.93a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="contact-card-text"><div class="contact-card-label">Call Us</div><div class="contact-card-value">+91 76655 99457</div></div>
           </a>
           <a href="mailto:Udaipur360property@gmail.com" class="contact-card">
-            <div class="contact-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
-              </svg>
-            </div>
-            <div class="contact-card-text">
-              <div class="contact-card-label">Email Us</div>
-              <div class="contact-card-value">Udaipur360property@gmail.com</div>
-            </div>
+            <div class="contact-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="contact-card-text"><div class="contact-card-label">Email Us</div><div class="contact-card-value">Udaipur360property@gmail.com</div></div>
           </a>
           <a href="https://wa.me/917665599457" target="_blank" rel="noopener" class="contact-card">
-            <div class="contact-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-              </svg>
-            </div>
-            <div class="contact-card-text">
-              <div class="contact-card-label">WhatsApp</div>
-              <div class="contact-card-value">+91 76655 99457</div>
-            </div>
+            <div class="contact-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+            <div class="contact-card-text"><div class="contact-card-label">WhatsApp</div><div class="contact-card-value">+91 76655 99457</div></div>
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER (WHITE) -->
+  <!-- FOOTER -->
   <footer>
-    <!-- Top brand row -->
     <div class="footer-brand">
       <div class="footer-brand-left">
-        <div class="footer-logo-img">
-          <div class="logo-placeholder"><img src="logo.jpeg" alt="Udaipur360Property"></div>
-        </div>
+        <div class="footer-logo-img"><img src="logo.jpeg" alt="Udaipur360Property"></div>
         <div>
           <div class="footer-brand-name">Udaipur360<span>Property</span></div>
           <div class="footer-brand-tagline">Complete Property Solutions</div>
         </div>
       </div>
-      <!-- Social Icons -->
       <div class="footer-social">
         <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-link" title="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </a>
         <a href="https://wa.me/917665599457" target="_blank" rel="noopener" class="footer-social-link" title="WhatsApp">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         </a>
         <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-social-link" title="Facebook">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </a>
         <a href="tel:+917665599457" class="footer-social-link" title="Call Us">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.59 1.3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l1.02-.93a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.59 1.3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l1.02-.93a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         </a>
       </div>
     </div>
-    <!-- Bottom bar -->
     <div class="footer-bottom">
       <div class="footer-copy">© 2025 Udaipur360Property. All rights reserved.</div>
       <div class="footer-links">
@@ -1344,96 +561,46 @@
   </footer>
 
   <script>
-    // ── Navbar scroll effect ──
+    // Navbar scroll
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 20);
-    }, { passive: true });
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
 
-    // ── Mobile menu ──
+    // Mobile menu
     const burger = document.getElementById('burger');
     const mobileMenu = document.getElementById('mobileMenu');
-    burger.addEventListener('click', () => {
-      burger.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-    });
-    function closeMobile() {
-      burger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-    }
+    burger.addEventListener('click', () => { burger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+    function closeMobile() { burger.classList.remove('open'); mobileMenu.classList.remove('open'); }
 
-    // ── Scroll animations ──
+    // Scroll animations
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.12 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    // ── Image Slider Logic ──
-    // State: current slide index per slider
+    // Slider
     const sliderState = {};
-
-    function getState(sliderId) {
-      if (!sliderState[sliderId]) sliderState[sliderId] = { current: 0, total: 3, timer: null };
-      return sliderState[sliderId];
-    }
+    function getState(id) { if (!sliderState[id]) sliderState[id] = { current: 0, total: 3, timer: null }; return sliderState[id]; }
 
     function slideTo(sliderId, index) {
       const state = getState(sliderId);
       state.current = index;
-      const track = document.getElementById('track-' + sliderId.split('-')[1]);
-      // Use transform for GPU-accelerated, 60fps animation
-      track.style.transform = `translateX(-${index * (100/3)}%)`;
-      updateDots(sliderId, index);
+      const n = sliderId.split('-')[1];
+      document.getElementById('track-' + n).style.transform = `translateX(-${index * (100/3)}%)`;
+      const dots = document.getElementById('dots-' + n);
+      if (dots) dots.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === index));
       resetAutoplay(sliderId);
     }
 
-    function slideMove(sliderId, dir) {
-      const state = getState(sliderId);
-      const next = (state.current + dir + state.total) % state.total;
-      slideTo(sliderId, next);
-    }
+    function slideMove(sliderId, dir) { const s = getState(sliderId); slideTo(sliderId, (s.current + dir + s.total) % s.total); }
+    function startAutoplay(id) { const s = getState(id); s.timer = setInterval(() => slideTo(id, (s.current + 1) % s.total), 3500); }
+    function resetAutoplay(id) { const s = getState(id); if (s.timer) clearInterval(s.timer); startAutoplay(id); }
 
-    function updateDots(sliderId, index) {
-      const dotsEl = document.getElementById('dots-' + sliderId.split('-')[1]);
-      if (!dotsEl) return;
-      dotsEl.querySelectorAll('.slider-dot').forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
-    }
+    ['slider-1', 'slider-2', 'slider-3'].forEach((id, i) => setTimeout(() => startAutoplay(id), i * 1200));
 
-    function startAutoplay(sliderId) {
-      const state = getState(sliderId);
-      state.timer = setInterval(() => {
-        const next = (state.current + 1) % state.total;
-        slideTo(sliderId, next);
-      }, 3500);
-    }
-
-    function resetAutoplay(sliderId) {
-      const state = getState(sliderId);
-      if (state.timer) clearInterval(state.timer);
-      startAutoplay(sliderId);
-    }
-
-    // Init autoplay for all 3 sliders with staggered start
-    ['slider-1', 'slider-2', 'slider-3'].forEach((id, i) => {
-      setTimeout(() => startAutoplay(id), i * 1200);
-    });
-
-    // Pause autoplay on hover
     document.querySelectorAll('.prop-slider').forEach(slider => {
       const id = slider.id;
-      slider.addEventListener('mouseenter', () => {
-        const state = getState(id);
-        if (state.timer) clearInterval(state.timer);
-      });
-      slider.addEventListener('mouseleave', () => {
-        startAutoplay(id);
-      });
+      slider.addEventListener('mouseenter', () => { const s = getState(id); if (s.timer) clearInterval(s.timer); });
+      slider.addEventListener('mouseleave', () => startAutoplay(id));
     });
   </script>
 </body>
