@@ -1040,35 +1040,63 @@
         </div>
       </div>
 
+  <!-- PROPERTIES SHOWCASE — 3 properties with image sliders -->
+  <section class="properties" id="properties">
+    <div class="section-header">
+      <div class="section-label fade-up">Our Properties</div>
+      <h2 class="section-title fade-up d1">Featured Projects</h2>
+      <p class="section-desc fade-up d2">Explore our current listings — prime plots ready for booking in Udaipur's best locations.</p>
+    </div>
+    <div class="properties-grid">
+
+      <!-- Property 1: Boyna Plan -->
+      <div class="prop-card fade-up d1">
+        <div class="prop-slider" id="slider-1">
+          <div class="prop-badge gold">Featured</div>
+          <div class="slider-track" id="track-1">
+            <div class="slider-slide"><img src="Boyna1.jpeg" alt="Boyna Plan - View 1"></div>
+            <div class="slider-slide"><img src="Boyna2.jpeg" alt="Boyna Plan - View 2"></div>
+            <div class="slider-slide"><img src="Boyna3.jpeg" alt="Boyna Plan - View 3"></div>
+          </div>
+          <button class="slider-arrow prev" onclick="slideMove('slider-1',-1)">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="slider-arrow next" onclick="slideMove('slider-1',1)">
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <div class="slider-dots" id="dots-1">
+            <button class="slider-dot active" onclick="slideTo('slider-1',0)"></button>
+            <button class="slider-dot" onclick="slideTo('slider-1',1)"></button>
+            <button class="slider-dot" onclick="slideTo('slider-1',2)"></button>
+          </div>
+        </div>
+        <div class="prop-body">
+          <div class="prop-type">Residential Plot</div>
+          <div class="prop-name">Boyna Plan</div>
+          <div class="prop-loc">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Mavli Road, Udaipur (12 km before Mavli)
+          </div>
+          <div class="prop-highlights">
+            <span class="prop-highlight">Pure residential population</span>
+            <span class="prop-highlight">Near farmhouses &amp; established houses</span>
+            <span class="prop-highlight">Peaceful, green surroundings</span>
+          </div>
+          <div class="prop-footer">
+            <div class="prop-price">Contact <span>for pricing</span></div>
+            <a href="#contact" class="prop-btn">Enquire →</a>
+          </div>
+        </div>
+      </div>
+
       <!-- Property 2: Sakroda (Converted Plan) -->
       <div class="prop-card fade-up d2">
         <div class="prop-slider" id="slider-2">
           <div class="prop-badge">Converted Plan</div>
           <div class="slider-track" id="track-2">
-            <div class="slider-slide">
-              <div class="slide-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-                </svg>
-                <span><img src="Sakroda1.jpeg" alt=""></span>
-              </div>
-            </div>
-            <div class="slider-slide">
-              <div class="slide-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-                </svg>
-                <span><img src="Sakroda2.jpeg" alt=""></span>
-              </div>
-            </div>
-            <div class="slider-slide">
-              <div class="slide-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-                </svg>
-                <span><img src="Sakroda3.jpeg" alt=""></span>
-              </div>
-            </div>
+            <div class="slider-slide"><img src="Sakroda1.jpeg" alt="Sakroda - View 1"></div>
+            <div class="slider-slide"><img src="Sakroda2.jpeg" alt="Sakroda - View 2"></div>
+            <div class="slider-slide"><img src="Sakroda3.jpeg" alt="Sakroda - View 3"></div>
           </div>
           <button class="slider-arrow prev" onclick="slideMove('slider-2',-1)">
             <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -1106,30 +1134,9 @@
         <div class="prop-slider" id="slider-3">
           <div class="prop-badge gold">Farm Land</div>
           <div class="slider-track" id="track-3">
-            <div class="slider-slide">
-              <div class="slide-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-                </svg>
-                <span><img src="Devgarh1.jpeg" alt=""></span>
-              </div>
-            </div>
-            <div class="slider-slide">
-              <div class="slide-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-                </svg>
-                <span><img src="Devgarh2.jpeg" alt=""></span>
-              </div>
-            </div>
-            <div class="slider-slide">
-              <div class="slide-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-                </svg>
-                <span><img src="Devgarh3.jpeg" alt=""></span>
-              </div>
-            </div>
+            <div class="slider-slide"><img src="Devgarh1.jpeg" alt="Devgrah Farms - View 1"></div>
+            <div class="slider-slide"><img src="Devgarh2.jpeg" alt="Devgrah Farms - View 2"></div>
+            <div class="slider-slide"><img src="Devgarh3.jpeg" alt="Devgrah Farms - View 3"></div>
           </div>
           <button class="slider-arrow prev" onclick="slideMove('slider-3',-1)">
             <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
